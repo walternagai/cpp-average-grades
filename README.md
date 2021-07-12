@@ -1,12 +1,8 @@
-# cpp-matrix-grades
+# cpp-average-grades
 
-Uma matriz representa valores separados por seus índices, ou seja, dada uma posição em linha e coluna existe um único valor associado.
+Considere uma matriz que armazene as notas de um ou mais alunos de uma instituição de ensino. Cada uma das linhas da matriz indica as notas de um único aluno e as colunas da matriz indicam a nota de uma atividade do aluno. 
 
-Um exemplo de uso da matriz pode ser a manipulação de notas de um ou mais alunos de uma instituição de ensino.
-
-Uma linha da matriz pode indicar as notas de um único aluno e as colunas da matriz indicam a nota de uma atividade do aluno.
-
-O programa desse repositório já está quase finalizado, pois o código da main.cpp já apresenta alguns comentários nas funções que podem auxiliar no desenvolvimento do programa.
+Termine de escrever o programa que calcula a média das notas de um aluno. Ao término do programa, deve-se mostrar as médias calculadas e qual foi o aluno que obteve a maior média. O programa desse repositório já está quase finalizado, pois o código da main.cpp já apresenta alguns comentários nas funções que podem auxiliar no desenvolvimento do programa.
 
 Termine de escrever o programa e teste as entradas para obter a saída esperada.
 
@@ -20,8 +16,10 @@ Veja o **Feeback** no link *Pull requests* para aber se a saída do programa est
 
 - ENTRADA: 5 6 7 8 9 10 8 7 3 4 5 6
 
-        8   10  6
+        Medias: 6.5 8.5 4.5 
+        A maior media eh 8.5 do aluno 2
 
 - ENTRADA: 1 2 3 4 4 5 6 7 9 10 3 4
 
-        4   7   10
+        Medias: 2.5 5.5 6.5 
+        A maior media eh 6.5 do aluno 3
