@@ -22,65 +22,62 @@ void leNotas (float notas[MAX_LINHAS][MAX_COLUNAS], int linhas, int colunas) {
 }
 
 /* 
-  maiorNota (notas, colunas)
-  notas: vetor de notas de uma linha da matriz
-  colunas: tamanho do vetor que é igual ao número de colunas da matriz
-  RETORNA o maior valor do vetor de notas.
+  calculeMedias (notas, linhas, colunas, medias)
+  Calcula as médias das notas por cada linha da matriz.
 */
-float maiorNota (float notas[MAX_COLUNAS], int colunas) {
-  float maior;
-  /* 
-    maior recebe a primeira nota de notas
-    PARA cada coluna do vetor EXECUTE
-      SE notas[coluna] > maior
-        maior recebe notas[coluna]
-      FIM-SE
+void calculeMedias (float notas[MAX_LINHAS][MAX_COLUNAS], int linhas, int colunas, float medias[MAX_LINHAS]) {
+  float soma;
+  /*
+  PARA cada linha da matriz EXECUTE
+    a variável soma inicia com valor 0 (zero)
+    PARA cada coluna da matriz EXECUTE
+      soma recebe a soma anterior mais a j-ésima nota da linha
     FIM-PARA
-    RETORNE maior
-  */
-  return maior;
-}
-
-/*
-  encontraMaioresNotas (maiores_notas, notas, linhas, colunas)
-  maiores_notas: vetor para armazenar a maior nota de cada aluno na matriz. Cada posição do vetor é relacionada a linha de uma matriz.
-  notas: matriz de notas de alunos e atividades realizadas.
-  linhas: número de alunos
-  colunas: número de atividades realizadas
-  Ao final da execução da função, o vetor maiores_notas terá as maiores notas dos alunos da matriz.
-*/
-void encontraMaioresNotas (float maiores_notas[MAX_LINHAS], float notas[MAX_LINHAS][MAX_COLUNAS], int linhas, int colunas) {
-  float maior;
-  /* 
-    PARA cada linha da matriz EXECUTE
-      maior recebe maiorNota (notas[linha], colunas)
-      maiores_notas[linha] recebe maior
-    FIM PARA 
+    a média do i-ésimo aluno recebe soma dividido pela quantidade de notas
+  FIM-PARA
   */
 }
 
 /* 
-  imprimeMaioresNotas (notas, linhas)
-  notas: vetor das maiores notas.
-  n: tamanho do vetor.
-  IMPRIME cada uma das notas do vetor.
+  mostreMedias (medias, linhas)
+  Mostra as médias calculadas para cada linha da matriz.
 */
-void imprimeMaioresNotas (float notas[MAX_LINHAS], int n) {
-  for (int i = 0; i < n; i++)
-    cout << notas[i] << "\t";
+void mostreMedias (float medias[MAX_LINHAS], int linhas) {
+  cout << "Medias: ";
+  for (int i = 0; i < linhas; i++) {
+    cout << medias[i] << " ";
+  }
   cout << endl;
+}
+
+/* 
+  maiorMedia (medias, linhas)
+  Mostre a maior média e qual foi o aluno que obteve essa média.
+*/
+void maiorMedia (float medias[MAX_LINHAS], int linhas) {
+  int   aluno = 0;
+  float maior = medias[0];
+
+  for (int i = 1; i < linhas; i++) {
+    if (medias[i] > maior) {
+      maior = medias[i];
+      aluno = i;
+    }
+  }
+  cout << "A maior media eh " << maior << " do aluno " << (aluno+1) << endl;
 }
 
 int main() {
   float notas[MAX_LINHAS][MAX_COLUNAS];
-  float maiores_notas[MAX_LINHAS];
-  int nAlunos, nAtividades;
+  float medias[MAX_LINHAS];
 
   leNotas (notas, MAX_LINHAS, MAX_COLUNAS);
 
-  encontraMaioresNotas (maiores_notas, notas, MAX_LINHAS, MAX_COLUNAS);
+  calculeMedias (notas, MAX_LINHAS, MAX_COLUNAS, medias);
 
-  imprimeMaioresNotas (maiores_notas, MAX_LINHAS);
+  mostreMedias (medias, MAX_LINHAS);
+
+  maiorMedia (medias, MAX_LINHAS);
 
   return 0;
 }
